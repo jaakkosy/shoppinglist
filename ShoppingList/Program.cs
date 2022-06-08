@@ -16,10 +16,18 @@ namespace ShoppingList
             {
                 Console.WriteLine(line);
             }
-            Console.WriteLine("Write the product in the shoppinglist:");
-            string userInput = Console.ReadLine();
-            lines.Add(userInput);
-            File.WriteAllLines(filePath, lines);
+            while (true)
+            {
+
+                Console.WriteLine("Write the product in the shoppinglist, to exit, write exit");
+                string userInput = Console.ReadLine();
+                if (userInput.ToLower() == "exit")
+                {
+                    break;
+                }
+                lines.Add(userInput);
+                File.WriteAllLines(filePath, lines);
+            }
         }
     }
 }
